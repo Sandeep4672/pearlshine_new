@@ -2,15 +2,24 @@ const { MongoClient } = require('mongodb');
 
 let database;
 
-// Aligning with the Cyclic docs example for environment variable name
-const mongodbURL = process.env.MONGO_CONNECTION_STRING || 'mongodb://127.0.0.1:27017';
+const mongodbURL = process.env.mongodbURL;  // Ensure this environment variable is correctly set
 
-const client = new MongoClient(mongodbURL);
+console.log(mongodbURL);
+
+const client = new MongoClient(mongodbURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverApi: {
+        version: "1",
+        strict: true,
+        deprecationErrors: true,
+    }
+});
 
 async function connectToDatabase() {
     try {
         await client.connect();
-        console.log('Connected to the database successfully.');
+        console.log(`Connected to the database successfully: ${mongodbURL}`);
         database = client.db('pearlshine');
     } catch (error) {
         console.error('Failed to connect to the database:', error.message);
