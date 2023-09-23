@@ -51,6 +51,8 @@ app.use(notFoundMiddleware);
 
 app.use(errorHandlerMiddleware);
 
+const PORT=process.env.PORT || 3000;
+
 db.connectToDatabase()
   .then(function () {
     app.listen(PORT,()=>{
