@@ -6,17 +6,27 @@ const mongodbURL = process.env.MONGODB_URL;  // Ensure this environment variable
 
 console.log(mongodbURL);
 
-const client = new MongoClient(mongodbURL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverApi: {
-        version: "1",
-        strict: true,
-        deprecationErrors: true,
-    }
-});
+let client;
+
+try {
+    client = new MongoClient(mongodbURL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        serverApi: {
+            version: "1",
+            strict: true,
+            deprecationErrors: true,
+        }
+    });
+} catch (error) {
+    console.error("MongoClient initialization failed:", error.message);
+}
 
 async function connectToDatabase() {
+    if (!client) {
+        console.error("MongoClient is not initialized.");
+        return;
+    }
     try {
         await client.connect();
         console.log(`Connected to the database successfully: ${mongodbURL}`);
@@ -28,7 +38,9 @@ async function connectToDatabase() {
 
 function getDb() {
     if (!database) {
-        throw new Error('You must connect first!');
+        const errMsg = 'You must connect first!';
+        console.error(errMsg);
+        throw new Error(errMsg);
     }
     return database;
 }
