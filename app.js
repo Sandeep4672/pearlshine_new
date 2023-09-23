@@ -1,4 +1,4 @@
-require('dotenv').config();
+//require('dotenv').config();
 const path = require('path');
 
 const express = require('express');
@@ -53,7 +53,9 @@ app.use(errorHandlerMiddleware);
 
 db.connectToDatabase()
   .then(function () {
-    app.listen(3000);
+    app.listen(PORT,()=>{
+      console.log('Listening on port ${PORT}');
+    });
   })
   .catch(function (error) {
     console.log('Failed to connect to the database!');
