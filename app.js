@@ -27,7 +27,6 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static('public'));
-app.use('/products/assets', express.static('product-data'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -52,11 +51,12 @@ app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
 const PORT=process.env.PORT || 3000;
+console.log("Trying to connect to database");
 
 db.connectToDatabase()
   .then(function () {
     app.listen(PORT,()=>{
-      console.log('Listening on port ${PORT}');
+      console.log(`Listening on port ${PORT}`);
     });
   })
   .catch(function (error) {
