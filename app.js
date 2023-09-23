@@ -1,5 +1,5 @@
 require('dotenv').config();
-/*const path = require('path');
+const path = require('path');
 
 const express = require('express');
 const csrf = require('csurf');
@@ -52,15 +52,7 @@ app.use(errorHandlerMiddleware);
 
 const PORT=process.env.PORT || 3000;
 console.log("Trying to connect to database");
-*/
 
-app.get('/',async (req, res) => {
-  console.log(req.headers['user-agent'])
-  console.log(Date.now())
-  console.log(req.query)
-  console.error('this is an error')
-  return res.send('ok')
-})
 db.connectToDatabase()
   .then(function () {
     app.listen(PORT,()=>{
