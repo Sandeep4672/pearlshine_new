@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
-  "author": "Maximilian Schwarzmüller",
+  "author": "Sandeep",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
