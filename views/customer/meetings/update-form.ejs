@@ -1,0 +1,28 @@
+<form action="<%=submitPath%>?_csrf=<%=locals.csrfToken%>" method="post">
+
+    <p>
+        <label for="doctorId">Doctor</label>
+        <select id="doctorId" name="doctorId" value="<%=meeting.name%>" required>
+          <% doctors.forEach(doctor => { %>
+            <option value="<%= doctor._id %>"><%= doctor.name %> - <%= doctor.specialization %></option>
+          <% }); %>
+        </select>
+    </p>
+
+    <!-- I'm assuming you still want to input specialization manually, 
+         if not, remove this block. -->
+    <p>
+        <label for="location">Date of the meeting</label>
+        <input type="date" id="date" name="date" value="<%=meeting.date%>" required>
+    </p>
+
+    <p>
+        <label for="fees">Comments</label>
+        <textarea id="comments" name="comments" required><%=meeting.comment%></textarea>
+    </p>
+
+    <p>
+        <button type="reset" class="btn btn-alt">Reset</button>
+        <button class="btn">Update</button>
+    </p>
+</form>

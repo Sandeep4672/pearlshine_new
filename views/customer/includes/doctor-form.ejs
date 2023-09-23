@@ -1,0 +1,28 @@
+<form action="<%=submitPath%>?_csrf=<%=locals.csrfToken%>" method="post">
+
+    <p>
+        <label for="name">Name</label>
+        <input type="text" id="name"  name="name" required>
+    </p>
+
+    <p>
+        <label for="specialization">Specialization</label>
+        <input type="text" id="specialization"  name="specialization" required>
+    </p>
+
+    <p>
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" required>
+    </p>
+
+    <p>
+        <label for="fees">Fees</label>
+        <input type="text" id="fees" name="fees" required>
+    </p>
+
+        <p>
+            <button type="reset" class="btn btn-alt">Reset</button>
+            <button class="btn">Save</button>
+        </p>
+    </p>
+</form>

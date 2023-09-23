@@ -1,0 +1,12 @@
+<article class="product-item">
+    <div class="product-item-content">
+      <h2><%= meeting.doctorName %></h2>
+      <h3><%=meeting.date %></h3>
+      <div class="product-item-actions">
+        <% if (locals.isAdmin) { %>
+          <a class="btn btn-alt" href="/admin/doctors/doctor-meeting/<%=meeting.meetingId%>">View Details</a>
+          <button class="btn btn-alt" data-meetingid="<%=meeting.meetingId%>" data-csrf="<%= locals.csrfToken %>">Delete</button>
+        <% } %>
+      </div>
+    </div>
+</article>  

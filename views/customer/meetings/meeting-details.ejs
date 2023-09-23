@@ -1,0 +1,16 @@
+<%- include('../../shared/includes/head',{pageTitle: "Meeting"}) %>
+<link rel="stylesheet" href="/styles/products.css">
+</head>
+<body>
+  <%- include('../../shared/includes/header') %>
+  <main id="product-details">
+    <header>
+        <div id="product-info">
+        <h1><%= meeting.date%></h1>
+        <h2><%=meeting.name  %>  <%= meeting.specialization %></h2>
+        </div>
+    </header>
+    
+    <p id="product-description"><%= meeting.comment %></p>
+  </main>
+<%- include('../../shared/includes/footer') %>

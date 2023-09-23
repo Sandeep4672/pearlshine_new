@@ -1,0 +1,19 @@
+<%- include('../../shared/includes/head', { pageTitle: 'Activity' }) %>
+<link rel="stylesheet" href="/styles/products.css">
+<script src="/scripts/doctor-management.js" defer></script>
+</head>
+<body>
+  <%- include('../../shared/includes/header') %>
+  <main>
+    <h1>All Doctors</h1>
+    <ul id="products-grid">
+      <% if(!doctors){ %>
+        <h2>Could not find any doctors</h2>
+        <% }else{for (const doctor of doctors) { %>
+        <li>
+          <%- include('./doctor-item', { doctor: doctor }) %>
+        </li>
+      <% }} %>
+    </ul>
+  </main>
+<%- include('../../shared/includes/footer') %>

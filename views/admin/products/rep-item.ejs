@@ -1,0 +1,12 @@
+<article class="product-item">
+    <div class="product-item-content">
+      <h2><%= rep.name %></h2>
+      <h3><%=rep.email %></h3>
+      <div class="product-item-actions">
+        <% if (locals.isAdmin) { %>
+          <a class="btn btn-alt" href="/admin/reps/meetings/<%= rep._id %>">View Meetings</a>
+        <% } %>
+      </div>
+    </div>
+  </article>
+  
