@@ -1,13 +1,20 @@
 const expressSession = require('express-session');
 const mongoDbStore = require('connect-mongodb-session');
 
+
 function createSessionStore() {
   const MongoDBStore = mongoDbStore(expressSession);
 
+  // Use the environment variable to connect to your online MongoDB
   const store = new MongoDBStore({
-    uri: 'mongodb://127.0.0.1:27017',
+    uri: process.env.MONGODB_URL,
     databaseName: 'online-shop',
     collection: 'sessions'
+  });
+
+  // Error handling: Log any connection errors
+  store.on('error', function(error) {
+    console.error('Session store error:', error);
   });
 
   return store;
@@ -15,7 +22,7 @@ function createSessionStore() {
 
 function createSessionConfig() {
   return {
-    secret: 'super-secret',
+    secret: 'super-secret', // Note: You should also store secrets like this in environment variables!
     resave: false,
     saveUninitialized: false,
     store: createSessionStore(),
