@@ -10,7 +10,6 @@ const db = require('./data/database');
 const addCsrfTokenMiddleware = require('./middlewares/csrf-token');
 const errorHandlerMiddleware = require('./middlewares/error-handler');
 const checkAuthStatusMiddleware = require('./middlewares/check-auth');
-const protectRoutesMiddleware = require('./middlewares/protect-routes');
 const protectAuthMiddleware=require('./middlewares/protect-auth');
 const protectAdminMiddleware=require('./middlewares/protect-admin');
 const notFoundMiddleware = require('./middlewares/not-found');
@@ -18,7 +17,6 @@ const authRoutes = require('./routes/auth.routes');
 const meetingsRoutes = require('./routes/meeting.routes');
 const baseRoutes = require('./routes/base.routes');
 const adminRoutes = require('./routes/admin.routes');
-//const cartRoutes = require('./routes/cart.routes');
 const doctorsRoutes = require('./routes/doctors.routes');
 
 const app = express();

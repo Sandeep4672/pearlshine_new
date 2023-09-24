@@ -1,3 +1,5 @@
+console.log("Auth routes");
+
 const express = require('express');
 
 const authController = require('../controllers/auth.controller');

@@ -3,6 +3,8 @@ const mongodb = require('mongodb');
 
 const db = require('../data/database');
 
+console.log("User model");
+
 class User {
   constructor(email, password, fullname, street, postal, city) {
     this.email = email;

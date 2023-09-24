@@ -1,3 +1,5 @@
+console.log("Meeting Routes");
+
 const express = require('express');
 
 const meetingsController = require('../controllers/meeting.controller');

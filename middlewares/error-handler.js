@@ -1,4 +1,5 @@
 function handleErrors(error, req, res, next) {
+  console.log("Error-handler");
   console.log(error);
 
   if (error.code === 404) {

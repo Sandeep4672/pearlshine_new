@@ -1,3 +1,5 @@
+console.log("Doctor Routes");
+
 const express = require('express');
 
 const doctorsController = require('../controllers/doctors.controller');

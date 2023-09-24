@@ -2,6 +2,8 @@ const mongodb = require('mongodb');
 
 const db = require('../data/database');
 
+console.log("Doctor Model");
+
 class Doctor {
   constructor(name, specialization, location, fees, date, id = null) {
     this._id = id ? new mongodb.ObjectId(id) : null;

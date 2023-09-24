@@ -1,6 +1,8 @@
 const mongodb = require('mongodb');
 const db = require('../data/database');
 
+console.log("Meeting model");
+
 class Meeting {
   constructor(date, comment, uid, doctorId, meetingId) {
     this.date = date;
