@@ -147,11 +147,11 @@ async function deleteDoctor(req, res, next) {
 }
 
 async function deleteDoctorMeetings(req, res, next) {
-  console.log(req.params.id);
+  //console.log(req.params.id);
   let meeting;
   try {
     meeting = await Meeting.findById(req.params.id);
-    console.log(meeting);
+    //console.log(meeting);
     await meeting.remove();
   } catch (error) {
     return next(error);

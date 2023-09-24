@@ -41,7 +41,7 @@ async function viewdetails(req,res){
 async function getUpdateForm(req,res){
   const doctors=await Doctor.findAll();
   const meeting = await Meeting.findById(req.params.id);
-  console.log(meeting);
+  //console.log(meeting);
   res.render('customer/meetings/new-update',{doctors:doctors,meeting: meeting});
 }
 
