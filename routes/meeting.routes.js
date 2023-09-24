@@ -6,10 +6,6 @@ const meetingsController = require('../controllers/meeting.controller');
 
 const router = express.Router();
 
-router.get('/',function(req,res){
-    res.redirect('/activity');
-})
-
 router.get('/meeting/new', meetingsController.getNewMeeting);
 
 router.post('/meeting',meetingsController.savemeeting);

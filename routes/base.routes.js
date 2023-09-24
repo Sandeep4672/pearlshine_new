@@ -8,6 +8,15 @@ const router = express.Router();
   res.redirect('/activity');
 });*/
 
+router.get('/',function(req,res){
+  if(res.locals.isAuth){
+  res.redirect('/activity');
+  }else{
+      res.redirect('/login');
+  }
+})
+
+
 router.get('/401', function(req, res) {
   res.status(401).render('shared/401');
 });
