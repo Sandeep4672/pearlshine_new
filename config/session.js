@@ -27,7 +27,7 @@ function createSessionConfig() {
     saveUninitialized: false,
     store: createSessionStore(),
     cookie: {
-      maxAge: 2 * 24 * 60 * 60 * 1000
+      maxAge: 3600 * 1000
     }
   };
 }
