@@ -8,7 +8,7 @@ function createSessionStore() {
   // Use the environment variable to connect to your online MongoDB
   const store = new MongoDBStore({
     uri: process.env.MONGODB_URL,
-    databaseName: 'online-shop',
+    databaseName: 'pearlshine',
     collection: 'sessions'
   });
 
@@ -27,7 +27,8 @@ function createSessionConfig() {
     saveUninitialized: false,
     store: createSessionStore(),
     cookie: {
-      maxAge: 3600 * 1000
+      httpOnly: true,
+      secure: false    
     }
   };
 }
